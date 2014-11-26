@@ -1,3 +1,11 @@
-<div id='container'>
-  <!-- Your html here -->
+<input type="text" name="search" ng-model='search'>
+<div class="links">
+  <div class="link fx-fade-up fx-speed-400 fx-easing-strong" ng-repeat="link in data.links | filter:search | orderBy: 'created_at'">
+    <div class="visits">
+      <span class="count">{{ link.visits }}</span>Visits
+    </div>
+    <div class="title">{{ link.title }}</div>
+    <div class="original">{{ link.url }}</div>
+    <a href="/api/links/{{ link.code }}">{{ link.base_url }}/{{ link.code }}</a>
+  </div>
 </div>
